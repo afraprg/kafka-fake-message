@@ -39,7 +39,6 @@ var startCmd = &cobra.Command{
 			if err != nil {
 				panic("Cannot read file")
 			}
-			//messages := make([]string, 1)
 			messages = strings.Split(string(fileContent), "\n")
 		}
 
@@ -55,7 +54,7 @@ var startCmd = &cobra.Command{
 					messageFileReadIndex++
 				}
 				kafkaProducer.SendMessage(message)
-				fmt.Println(msgCount)
+				fmt.Println(message)
 				msgCount++
 				if msgCount == count {
 					return
